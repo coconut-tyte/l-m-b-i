@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Nguyễn Quốc Bảo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">NQB.</div>
+            <ul class="nav-links">
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#skills">Kỹ năng</a></li>
+                <li><a href="#projects">Dự án</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Phần Giới thiệu -->
+        <section id="about" class="hero">
+            <div class="hero-content">
+                <h1>Xin chào, tôi là <span>Nguyễn Quốc Bảo</span></h1>
+                <p>Sinh viên Công nghệ Thông tin tại Đại học Lạc Hồng (MSSV: 125000946). Tôi đam mê phát triển Web, hệ thống nhúng và luôn thích khám phá những công nghệ mới.</p>
+                <a href="#projects" class="btn">Xem Dự Án Của Tôi</a>
+            </div>
+        </section>
+
+        <!-- Phần Kỹ năng -->
+        <section id="skills" class="section">
+            <h2>Kỹ Năng Nổi Bật</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fa-solid fa-code"></i>
+                    <h3>Front-End Web</h3>
+                    <p>HTML5, CSS3 (Grid/Flexbox), JavaScript (Vanilla)</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fa-brands fa-python"></i>
+                    <h3>Lập trình Python</h3>
+                    <p>Cấu trúc dữ liệu, Thuật toán, Pygame, Tự động hóa</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fa-solid fa-microchip"></i>
+                    <h3>Hệ Thống Nhúng</h3>
+                    <p>ESP32, C++, ESP-NOW Protocol, Captive Portal</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fa-brands fa-git-alt"></i>
+                    <h3>Công cụ & Quy trình</h3>
+                    <p>Git, GitHub, VS Code, Agile/Scrum Workflow</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phần Dự án -->
+        <section id="projects" class="section bg-light">
+            <h2>Dự Án Tiêu Biểu</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Game Oẳn Tù Tì (Web)</h3>
+                    <p>Dự án nhóm 5 người phát triển game Rock-Paper-Scissors trên nền tảng Web. Tích hợp AI difficulty, hệ thống skin và winstreak mechanics.</p>
+                    <div class="tech-stack">
+                        <span>HTML/CSS</span>
+                        <span>JavaScript</span>
+                        <span>Git</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Hệ Thống Điểm Danh ESP-NOW</h3>
+                    <p>Xây dựng hệ thống giao tiếp không dây sử dụng vi điều khiển ESP32-C3, cấu trúc gói tin và truyền dữ liệu UDP với độ trễ thấp.</p>
+                    <div class="tech-stack">
+                        <span>C++</span>
+                        <span>ESP32</span>
+                        <span>Mạng không dây</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Phần Liên hệ -->
+    <footer id="contact">
+        <h2>Kết nối với tôi</h2>
+        <div class="social-links">
+            <a href="https://github.com/" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:email@example.com"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        <p>&copy; 2026 Nguyễn Quốc Bảo. Xây dựng bằng HTML, CSS & JS.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
