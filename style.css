@@ -1,4 +1,16 @@
-/* Reset CSS cơ bản */
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+:root {
+    --portfolio-ink: #18243a;
+    --portfolio-blue: #2456d6;
+    --portfolio-orange: #e45b3f;
+    --portfolio-lime: #d9ef78;
+    --portfolio-paper: #f4f5f2;
+    --portfolio-line: #dce1e7;
+}
+
+/* Reset and shared element defaults */
 * {
     margin: 0;
     padding: 0;
@@ -12,10 +24,11 @@ html {
 
 body {
     line-height: 1.6;
-    color: #333;
+    color: var(--portfolio-ink);
+    background: var(--portfolio-paper);
 }
 
-/* Header & Navigation */
+/* Shared component defaults */
 header {
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -202,7 +215,10 @@ footer {
     }
 }
 
-/* Portfolio layout: named Grid areas for the existing page sections */
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+/* Named Grid areas for the page structure */
 body {
     display: grid;
     grid-template-areas:
@@ -364,32 +380,9 @@ nav {
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        transition-duration: 0.01ms !important;
-    }
-}
-
-/* Portfolio showcase additions */
-:root {
-    --portfolio-ink: #18243a;
-    --portfolio-blue: #2456d6;
-    --portfolio-orange: #e45b3f;
-    --portfolio-lime: #d9ef78;
-    --portfolio-paper: #f4f5f2;
-    --portfolio-line: #dce1e7;
-}
-
-body {
-    background: var(--portfolio-paper);
-    color: var(--portfolio-ink);
-}
+/* ==========================================================================
+   COMPONENTS
+   ========================================================================== */
 
 header {
     background: rgba(255, 255, 255, 0.96);
@@ -1515,41 +1508,9 @@ main {
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .visual-tile img,
-    .workflow-card {
-        transition: none;
-    }
-}
-
 /* ==========================================================================
-   CÁC ĐOẠN MÃ MỞ RỘNG MỚI (ANIMATIONS, MICRO-INTERACTIONS & CHI TIẾT SINH ĐỘNG)
+   COMPONENTS — interaction states
    ========================================================================== */
-
-/* 1. Tùy chỉnh vùng chọn văn bản & Thanh cuộn thanh lịch */
-::selection {
-    background: var(--portfolio-blue, #2563eb);
-    color: #ffffff;
-}
-
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #edf1f7;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #aab8ce;
-    border-radius: 4px;
-    border: 2px solid #edf1f7;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--portfolio-blue, #2456d6);
-}
 
 /* 2. Hiệu ứng nhịp tim radar cho đèn trạng thái (Availability & Kicker Pulse) */
 .availability-dot {
@@ -1693,7 +1654,11 @@ main {
 }
 
 .tech-stack span {
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: default;
     border: 1px solid transparent;
 }
@@ -1809,7 +1774,10 @@ main {
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.08);
     margin: 0 6px;
-    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: background-color 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+        color 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+        transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .social-links a:hover {
@@ -1819,28 +1787,54 @@ main {
     box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
 
-/* 11. Tiện ích hiệu ứng chữ gradient và nút cuộn lên đầu trang (Back to Top) */
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+::selection {
+    background: var(--portfolio-blue, #2563eb);
+    color: #ffffff;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf1f7;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #aab8ce;
+    border: 2px solid #edf1f7;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--portfolio-blue, #2456d6);
+}
+
 .text-gradient {
+    display: inline-block;
     background: linear-gradient(135deg, var(--portfolio-blue, #2456d6), var(--portfolio-orange, #e45b3f));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: inline-block;
 }
 
 .scroll-top-btn {
     position: fixed;
-    bottom: 26px;
     right: 26px;
+    bottom: 26px;
+    z-index: 999;
     width: 44px;
     height: 44px;
-    background: var(--portfolio-blue, #2456d6);
-    color: #ffffff;
-    border-radius: 50%;
     display: grid;
     place-items: center;
-    text-decoration: none;
+    border-radius: 50%;
+    background: var(--portfolio-blue, #2456d6);
+    color: #ffffff;
     box-shadow: 0 8px 22px rgba(36, 86, 214, 0.35);
-    z-index: 999;
+    text-decoration: none;
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1848,4 +1842,15 @@ main {
     transform: translateY(-4px) scale(1.08);
     background: #1d4ed8;
     box-shadow: 0 12px 28px rgba(36, 86, 214, 0.48);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
 }
